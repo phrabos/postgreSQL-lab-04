@@ -104,6 +104,46 @@ describe('postgres-lab routes', () => {
       origin: expect.any(String)
     })
   })
+  it('gets a tea from our database', async () => {
+    const res = await request(app)
+      .get('/api/v1/teas/1')
+
+    expect(res.body).toEqual({
+      id: expect.any(String),
+      name: expect.any(String),
+      category: expect.any(String),
+      quantity: expect.any(Number),
+      origin: expect.any(String)
+    })
+  })
+  it('gets all teas from our database', async () => {
+    const res = await request(app)
+      .get('/api/v1/teas')
+
+    expect(res.body).toEqual([
+      {
+      id: expect.any(String),
+      name: expect.any(String),
+      category: expect.any(String),
+      quantity: expect.any(Number),
+      origin: expect.any(String)
+      },
+      {
+        id: expect.any(String),
+        name: expect.any(String),
+        category: expect.any(String),
+        quantity: expect.any(Number),
+        origin: expect.any(String)
+      },
+      {
+        id: expect.any(String),
+        name: expect.any(String),
+        category: expect.any(String),
+        quantity: expect.any(Number),
+        origin: expect.any(String)
+        },
+      ])
+  })
 });
 
 
