@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS teas;
+
+CREATE TABLE teas (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  name TEXT NOT NULL,
+  category TEXT NOT NULL,
+  quantity INTEGER CHECK (quantity > 0),
+  origin TEXT NOT NULL
+
+)
